@@ -1,9 +1,9 @@
-import streamlit as st
+import streamlit
 import snowflake.connector
-import pandas as pd
+import pandas
+
 streamlit.title('Zena\'s Amazing Athleisure Catalog')
 # connect to snowflake
-st.stop()
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 # run a snowflake query and put it all in a var called my_catalog
@@ -30,4 +30,5 @@ width=400,
 caption= product_caption
 )
 streamlit.write('Price: ', df2[1])
-streamlit.write('Sizes Ava
+streamlit.write('Sizes Available: ',df2[2])
+streamlit.write(df2[3])
